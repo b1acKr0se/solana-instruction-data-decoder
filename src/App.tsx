@@ -14,7 +14,15 @@ function App() {
   const [data, setData] = useState("");
   const [decoded, setDecoded] = useState("");
 
+  useEffect(() => {
+    const storedIdl = localStorage.getItem('storedIdl');
+    if (storedIdl) {
+      setIdl(storedIdl);
+    }
+  }, []);
+
   const handleIdlChange = (event: any) => {
+    localStorage.setItem('storedIdl', event.target.value);
     setIdl(event.target.value);
   };
 
