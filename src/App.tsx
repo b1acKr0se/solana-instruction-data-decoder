@@ -19,6 +19,11 @@ function App() {
     if (storedIdl) {
       setIdl(storedIdl);
     }
+
+    const storedData = localStorage.getItem('storedData');
+    if (storedData) {
+      setData(storedData);
+    }
   }, []);
 
   const handleIdlChange = (event: any) => {
@@ -27,6 +32,7 @@ function App() {
   };
 
   const handleDataChange = (event: any) => {
+    localStorage.setItem('storedData', event.target.value);
     setData(event.target.value);
   };
 
